@@ -3,6 +3,7 @@ package com.demo;
 import com.demo.core.BaseMapper;
 import com.demo.core.Dal;
 import org.apache.ibatis.session.SqlSession;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.InjectionPoint;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.boot.SpringApplication;
@@ -16,14 +17,15 @@ import javax.annotation.Resource;
 /**
  * @author sk
  */
+@MapperScan("com.demo.repository")
 @SpringBootApplication
-public class SimpleCurdApplication {
+public class Application {
 
 	@Resource
 	SqlSession sqlSession;
 
 	public static void main(String[] args) {
-		SpringApplication.run(SimpleCurdApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 
 	@Bean
